@@ -95,18 +95,6 @@ streamlit run dashboard.py
 
 Opens at `http://localhost:8501`
 
-## 7-Day MVP Plan
-
-| Day | Task | Deliverable |
-|-----|------|------------|
-| 1 | Define threat taxonomy and research questions | Threat framework document |
-| 2 | Implement API collectors (Reddit, RSS) | 500+ public posts in database |
-| 3 | Build LLM classifier with confidence scoring | Classification schema, test results |
-| 4 | Create Streamlit dashboard | Interactive visualization |
-| 5 | Human validation workflow | Review process, ground truth |
-| 6 | Generate intelligence brief | 2-page research report |
-| 7 | Publish GitHub repo + demo | Documented, runnable project |
-
 ## Key Features
 
 ### Data Collection
