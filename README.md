@@ -2,7 +2,7 @@
 
 **An independent threat intelligence research tool that analyzes public social media discussions to identify AI-enabled recruitment scams and coordinated inauthentic behavior.**
 
-This project demonstrates research methodology, threat analysis, and operational intelligence production for the 10a Labs Research Fellow position.
+This project demonstrates research methodology, threat analysis, and operational intelligence production.
 
 ## Overview
 
@@ -297,9 +297,7 @@ Signals Detected:
 Recommendation: Manual review and potential platform reporting
 ```
 
-## For 10a Labs Application
-
-This project demonstrates:
+## What This Project Demonstrates
 
 1. **Research Methodology**: FIST + MITRE F3 framework applied systematically
 2. **Technical Implementation**: Operational system collecting, analyzing, and reporting threats
@@ -337,10 +335,9 @@ This project demonstrates:
 
 MIT License - See LICENSE file
 
-## Author
+## Research Focus
 
-Built for 10a Labs Research Fellow Application
-Research focus: AI safety, online threat intelligence, information integrity
+AI safety, online threat intelligence, information integrity, and ethical automation
 
 ---
 

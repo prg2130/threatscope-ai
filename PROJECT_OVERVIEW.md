@@ -184,9 +184,7 @@ threatscope-ai/
 
 ---
 
-## For 10a Labs Application
-
-This project demonstrates:
+## What This Project Demonstrates
 
 ✅ **Research Rigor**
 - FIST + MITRE F3 threat framework (published, authoritative)

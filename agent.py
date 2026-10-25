@@ -1,6 +1,6 @@
 """
 ThreatScope AI Agent - Autonomous threat intelligence research agent
-Analyzes social media for AI-enabled recruitment scams
+Analyzes publicly available social media for emerging online threats
 """
 
 from database import init_db, insert_post, insert_classification, get_unverified_high_confidence, get_statistics
@@ -158,7 +158,7 @@ class ThreatScopeAgent:
     def _build_report(self, stats):
         """Build markdown intelligence brief."""
         report = f"""# ThreatScope AI Intelligence Brief
-Research Fellow Application | 10a Labs
+Autonomous Threat Intelligence Research
 
 **Generated**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
