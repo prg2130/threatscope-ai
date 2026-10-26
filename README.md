@@ -117,68 +117,73 @@ Opens at `http://localhost:8501`
 - **Research Brief**: Markdown intelligence report with methodology
 - **Evidence Preservation**: All posts, classifications, and signals stored for audit
 
-## Threat Taxonomy
+## ThreatScope Taxonomy
 
-### 1. Fake Recruiter Impersonation (MITRE T1684.001)
+The taxonomy is grounded in FIST (Fraud Incident Structured Threat) and MITRE frameworks, customized for AI-enabled recruitment scams.
 
-**Definition**: AI-generated or stolen personas posing as legitimate recruiters
+### 1. Fake Recruiter Impersonation
 
-**Detection Signals**:
-- Recently created LinkedIn profile with stolen/generated photos
-- Inconsistent communication patterns (too generic or unnaturally polished)
-- Job descriptions with unusual phrasing patterns
-- AI-generated voice or video in interviews
-- Company website/LinkedIn does not match recruiter claims
+**Definition**: AI-generated, synthetic, or stolen personas impersonating legitimate recruiters to deceive job seekers
 
-**Confidence Scoring**:
-- **HIGH**: Multiple independent signals
-- **MEDIUM**: 1-2 signals or pattern matches known scams
-- **LOW**: Single signal or innocent explanation possible
+**Red Flags**:
+- Newly created LinkedIn profiles with generic or stolen photos
+- Generic job descriptions that could apply to many roles
+- Pressure to move communication off-platform (WhatsApp, Telegram)
+- Unrealistic salary offers or too-good-to-be-true benefits
+- Recruiter unable to answer technical questions about the role
 
-### 2. Credential Harvesting (MITRE T1598.002)
+**Threat Level**:
+- **HIGH**: 3+ red flags + confirmed impersonation OR credential request
+- **MEDIUM**: 2+ red flags in same post
+- **LOW**: Single red flag, insufficient evidence
 
-**Definition**: Requests for sensitive data (SSN, banking info, passwords) under pretense of verification
+### 2. Credential Harvesting
 
-**Detection Signals**:
-- Password or banking information requested before employment starts
-- "Verify identity" forms requesting PII beyond standard hiring
-- Links to suspicious verification websites
-- Urgency language ("verify within 24 hours")
+**Definition**: Requests for sensitive information (passwords, SSN, banking details, tax IDs) under pretense of employment verification
 
-**Severity**:
-- **HIGH**: Direct credential theft confirmed
-- **MEDIUM**: Social engineering attempt observed
-- **LOW**: Suspicious but unverified
+**Red Flags**:
+- Requests for passwords or banking information before employment starts
+- "Verify your identity" forms asking for PII beyond standard hiring
+- Urgency language ("complete by EOD", "verify within 24 hours")
+- Links to suspicious verification websites not matching company domains
+- Requests for more personal information than standard onboarding
 
-### 3. Synthetic Endorsement (MITRE T1589.002)
+**Threat Level**:
+- **HIGH**: Any confirmed request for passwords, banking info, or SSN
+- **MEDIUM**: Suspicious verification request with urgency language
+- **LOW**: Ambiguous request, could be legitimate process
 
-**Definition**: Deepfakes, voice clones, or LLM-generated testimonials posing as real employees
+### 3. Synthetic Endorsement
 
-**Detection Signals**:
-- Video interview with subtle AI tells (blinking patterns, lip sync issues)
-- Voice cloning detected in call recordings
-- Employee testimonials that cannot be verified on company LinkedIn
-- Generic positive language matching LLM output patterns
+**Definition**: AI-generated content (deepfakes, voice clones, synthetic testimonials) impersonating real employees or executives
 
-**Confidence**:
-- **HIGH**: Technical detection of deepfake or voice cloning
-- **MEDIUM**: Human review suspects synthesis
-- **LOW**: Unverifiable but plausible
+**Red Flags**:
+- Employee testimonials with generic, identical language across profiles
+- Video interviews with subtle AI tells (unnatural blinking, lip sync issues, frame glitches)
+- Voice cloning detected in interview recordings or voicemails
+- "Employee reviews" praising job not verifiable on LinkedIn or Glassdoor
+- Testimonials from employees not listed on company LinkedIn profile
 
-### 4. Coordinated Inauthentic Behavior (MITRE T1659)
+**Threat Level**:
+- **HIGH**: Technical detection of deepfake/voice cloning OR unverifiable testimonials
+- **MEDIUM**: Multiple testimonials with identical language, unverifiable sources
+- **LOW**: Single unverifiable testimonial, could be anonymous review
 
-**Definition**: Multiple accounts discussing the same fake job opportunity in coordinated pattern
+### 4. Coordinated Inauthentic Behavior
 
-**Detection Signals**:
-- Same job posting across multiple platforms within hours
-- Similar user profiles promoting same opportunity
-- Posting timestamps suggest coordination rather than organic discovery
-- Unusual account creation patterns (newly created accounts)
+**Definition**: Multiple accounts or platforms promoting the same fraudulent opportunity in statistically suspicious patterns
 
-**Confidence**:
-- **HIGH**: Statistical anomalies detected
-- **MEDIUM**: Suspicious clustering observed
-- **LOW**: Could be coincidental
+**Red Flags**:
+- Same job posting appears across Reddit, LinkedIn, Facebook within hours
+- Multiple accounts with similar profiles (newly created, minimal history) promoting identical job
+- Posting timestamps suggest coordination (all posted within same hour)
+- Comments praising job opportunity from newly created accounts
+- Job reposted frequently on same platform in short timespan
+
+**Threat Level**:
+- **HIGH**: Statistical anomalies detected (coordinated posting times + new accounts)
+- **MEDIUM**: Same posting across multiple platforms + suspicious account characteristics
+- **LOW**: Posting appears on multiple platforms but could be legitimate multi-posting
 
 ## Limitations & Disclaimers
 

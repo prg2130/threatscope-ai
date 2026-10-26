@@ -48,31 +48,31 @@ SEVERITY_MIN = "low"  # Report all severity levels
 DASHBOARD_PORT = 8501
 REPORT_OUTPUT_DIR = "./reports"
 
-# Threat categories (aligned with framework)
+# Threat categories (ThreatScope Taxonomy - grounded in FIST + MITRE frameworks)
 THREAT_CATEGORIES = {
     "fake_recruiter_impersonation": {
         "name": "Fake Recruiter Impersonation",
         "description": "AI-generated or stolen personas posing as legitimate recruiters",
         "fist_phase": "Preparation + Promotion",
-        "mitre_technique": "T1684.001",
+        "framework": "FIST + MITRE Social Engineering",
     },
     "credential_harvesting": {
-        "name": "Credential Harvesting via Fake Verification",
-        "description": "Requests for sensitive data under pretense of verification",
+        "name": "Credential Harvesting",
+        "description": "Requests for sensitive data (passwords, SSN, banking) under pretense of hiring or verification",
         "fist_phase": "Engagement",
-        "mitre_technique": "T1598.002",
+        "framework": "FIST + MITRE Social Engineering",
     },
     "synthetic_endorsement": {
-        "name": "AI-Powered Synthetic Endorsement",
-        "description": "Deepfakes, voice clones, or LLM-generated testimonials posing as real employees",
+        "name": "Synthetic Endorsement",
+        "description": "Deepfakes, voice clones, or LLM-generated testimonials impersonating real people",
         "fist_phase": "Promotion",
-        "mitre_technique": "T1589.002",
+        "framework": "FIST + MITRE Deception",
     },
     "coordinated_behavior": {
         "name": "Coordinated Inauthentic Behavior",
-        "description": "Multiple accounts discussing same fake job in coordinated pattern",
+        "description": "Multiple accounts promoting same fraudulent opportunity in suspicious patterns",
         "fist_phase": "Preparation + Promotion",
-        "mitre_technique": "T1659",
+        "framework": "FIST + MITRE Coordination",
     },
 }
 

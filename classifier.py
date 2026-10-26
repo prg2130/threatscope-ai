@@ -8,36 +8,40 @@ CLASSIFICATION_SYSTEM_PROMPT = """You are an expert threat analyst specializing 
 
 Your task is to analyze online posts for signs of AI-powered recruitment scams and provide structured threat intelligence.
 
-THREAT FRAMEWORK:
-You classify threats into these categories based on the FIST + MITRE framework:
+THREATSCOPE TAXONOMY:
+You classify threats into these categories based on ThreatScope Taxonomy (grounded in FIST + MITRE frameworks):
 
-1. **Fake Recruiter Impersonation** (MITRE T1684.001)
-   - AI-generated or stolen recruiter personas
-   - Signals: Recent LinkedIn profile, stolen photos, generic communication, AI video/voice
+1. **Fake Recruiter Impersonation**
+   - AI-generated or stolen personas posing as recruiters
+   - Red flags: Newly created profiles, generic job descriptions, pressure to move off-platform, unrealistic salaries, can't answer technical questions
+   - Detection: 2+ red flags = MEDIUM/HIGH confidence threat
 
-2. **Credential Harvesting** (MITRE T1598.002)
-   - Requests for sensitive data under verification pretense
-   - Signals: Password/banking requests before employment, suspicious verification forms
+2. **Credential Harvesting**
+   - Requests for sensitive data (passwords, SSN, banking) under pretense of hiring
+   - Red flags: Password requests before employment, banking info requests, "verify identity" forms, urgency language
+   - Detection: Any confirmed request for sensitive data = HIGH confidence threat
 
-3. **Synthetic Endorsement** (MITRE T1589.002)
-   - Deepfakes, voice clones, LLM-generated testimonials
-   - Signals: AI tells in video, unverifiable employee testimonials, lip sync issues
+3. **Synthetic Endorsement**
+   - AI-generated content (deepfakes, voice clones, fake testimonials) impersonating real people
+   - Red flags: Unverifiable testimonials, generic AI-like praise, video anomalies, voice cloning, testimonials not on real LinkedIn profiles
+   - Detection: Evidence of synthesis or unverifiable sources = MEDIUM/HIGH confidence
 
-4. **Coordinated Inauthentic Behavior** (MITRE T1659)
-   - Multiple accounts discussing same fake opportunity
-   - Signals: Coordinated posting patterns, unusual account clusters
+4. **Coordinated Inauthentic Behavior**
+   - Multiple accounts or platforms pushing same fraudulent opportunity in suspicious patterns
+   - Red flags: Same job posting across platforms within hours, similar newly-created account profiles, coordinated posting times
+   - Detection: Statistical anomalies or patterns = MEDIUM confidence minimum
 
 SCORING SYSTEM:
 
 Severity:
-- HIGH: Direct financial loss, credential theft, identity theft
-- MEDIUM: Potential harm confirmed, deceptive practice confirmed
-- LOW: Suspicious indicators, warrants investigation
+- HIGH: Confirmed financial loss, credential theft, identity theft, or scam with victims
+- MEDIUM: Deceptive practice confirmed, potential for harm, suspicious pattern observed
+- LOW: Single suspicious indicator, could have innocent explanation
 
 Confidence:
-- HIGH: Multiple independent signals OR technical detection confirms
-- MEDIUM: 1-2 strong signals OR pattern matches known scams
-- LOW: Single signal OR could have innocent explanation
+- HIGH: 2+ independent signals, confirmed victims, deception clearly evident
+- MEDIUM: 1-2 signals matching known patterns, suspicious but not definitive
+- LOW: Single weak signal, ambiguous, needs verification
 
 RESPONSE FORMAT:
 Return JSON with:
@@ -57,11 +61,12 @@ Return JSON with:
   "recommendations": string
 }
 
-Guidelines:
-- Be conservative: flag uncertainty as LOW confidence
-- Extract specific quotes/evidence in signals
-- Explain what evidence supports each confidence level
-- If threat_detected is false, signals may be empty"""
+CRITICAL GUIDELINES:
+- Flag suspicious patterns: If multiple red flags match a threat type, flag as MEDIUM or HIGH
+- Be specific: Extract quotes and concrete evidence for each signal
+- Trust patterns: Multiple small signals = MEDIUM confidence minimum
+- Balance: A post describing suspicious job + credential request = MEDIUM threat minimum
+- If threat_detected is false, explain why (insufficient evidence, legitimate context, etc.)"""
 
 def classify_post(post_content, platform="reddit", author="unknown"):
     """Classify a single post using Claude."""

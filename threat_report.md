@@ -1,7 +1,7 @@
 # ThreatScope AI Intelligence Brief
-Research Fellow Application | 10a Labs
+Autonomous Threat Intelligence Research
 
-**Generated**: 2026-10-22 22:32:06
+**Generated**: 2026-10-26 18:43:03
 
 ## Executive Summary
 
@@ -9,11 +9,11 @@ This report documents findings from an autonomous threat intelligence analysis o
 
 ### Key Statistics
 
-- **Total signals reviewed**: 15
+- **Total signals reviewed**: 34
 - **Threat clusters identified**: 0
 - **High-priority findings**: 0
 - **Medium-priority findings**: 0
-- **Low-priority findings**: 15
+- **Low-priority findings**: 30
 
 ## Threat Findings by Category
 
@@ -21,30 +21,30 @@ This report documents findings from an autonomous threat intelligence analysis o
 
 
 ### By Confidence Level
-- **LOW**: 15 findings
+- **LOW**: 30 findings
 
 
 ## Methodology
 
 This analysis uses the FIST (Fraud Incident Structured Threat) framework combined with MITRE F3 (Fight Fraud Framework) threat classification.
 
-### Threat Categories
+### ThreatScope Taxonomy
 
-1. **Fake Recruiter Impersonation** (MITRE T1684.001)
-   - AI-generated or stolen personas posing as legitimate recruiters
-   - Detection: Recent profiles, stolen photos, generic communication, AI voice/video
+1. **Fake Recruiter Impersonation**
+   - AI-generated or stolen personas posing as recruiters
+   - Red flags: New profiles, generic descriptions, pressure to move off-platform, unrealistic salaries
 
-2. **Credential Harvesting** (MITRE T1598.002)
-   - Requests for sensitive data under verification pretense
-   - Detection: Password/banking requests, suspicious verification forms
+2. **Credential Harvesting**
+   - Requests for sensitive data (passwords, SSN, banking) under verification pretense
+   - Red flags: Password/banking requests before employment, urgency language, suspicious forms
 
-3. **Synthetic Endorsement** (MITRE T1589.002)
-   - Deepfakes, voice clones, LLM-generated testimonials
-   - Detection: AI tells in video, unverifiable testimonials, lip sync issues
+3. **Synthetic Endorsement**
+   - AI-generated content (deepfakes, voice clones, fake testimonials) impersonating real people
+   - Red flags: Unverifiable testimonials, video anomalies, generic AI-like language, voice cloning
 
-4. **Coordinated Inauthentic Behavior** (MITRE T1659)
-   - Multiple accounts discussing same fake opportunity
-   - Detection: Coordinated posting patterns, unusual account clusters
+4. **Coordinated Inauthentic Behavior**
+   - Multiple accounts promoting same fraudulent opportunity in suspicious patterns
+   - Red flags: Coordinated posting times, newly-created accounts, same posting across platforms
 
 ## Limitations & Disclaimers
 
@@ -69,6 +69,6 @@ This analysis uses the FIST (Fraud Incident Structured Threat) framework combine
 
 ---
 
-**Data Processed**: 15 posts
+**Data Processed**: 34 posts
 **Analysis Framework**: FIST + MITRE F3 Threat Classification
-**Collection Period**: 2026-10-22
+**Collection Period**: 2026-10-26
